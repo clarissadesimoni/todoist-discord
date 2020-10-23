@@ -111,7 +111,7 @@ def createString(tocopy):       #this function puts together all the tasks. It r
     api.sync()
     tasks = []
     for i in tocopy:
-        tasks.append(api.items.get(i)['item'])
+        tasks.append(api.items.get_by_id(i)['item'])
     tasks.sort(key=lambda el: (flipBoolToInt(el['due']['is_recurring']), -el['priority'], el['due']['date']))
     firstRec = 0
     for t in tasks:
